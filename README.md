@@ -96,5 +96,5 @@ npm run dev
 ```
 ## 📸 Screenshot
 
-![SalamKu Demo](https://imgur.com/a/UYlPw6R)
+![SalamKu Demo](https://imgur.com/gallery/salamku-ss-UYlPw6R)
 ---
