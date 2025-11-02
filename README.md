@@ -94,5 +94,7 @@ Under **Permissions**, enable:
 ```bash
 npm run dev
 ```
+## 📸 Screenshot
 
+![SalamKu Demo](https://imgur.com/a/UYlPw6R)
 ---
