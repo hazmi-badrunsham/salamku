@@ -95,9 +95,7 @@ Under **Permissions**, enable:
 npm run dev
 ```
 ## 📸 Screenshot
-
-## 📸 Screenshots
-
-![SalamKu Screenshot 1](https://i.imgur.com/7yizHPY.png)
 ![SalamKu Screenshot 2](https://i.imgur.com/cqjzscP.png)
+![SalamKu Screenshot 1](https://i.imgur.com/7yizHPY.png)
+
 ---
