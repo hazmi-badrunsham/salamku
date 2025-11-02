@@ -24,22 +24,35 @@ cd salamku
 npm install
 ```
 
-### 2. Configure Appwrite
+### 2. Configure Environment Variables
 
-Create an `appwrite.js` file in the `src` folder with your Appwrite credentials:
+Create a `.env` file in the root directory with your Appwrite credentials:
+```properties
+VITE_APPWRITE_ENDPOINT=https://sgp.cloud.appwrite.io/v1
+VITE_APPWRITE_PROJECT_ID=your_project_id_here
+VITE_APPWRITE_PROJECT_NAME=salamku
+```
+
+**Note:** Replace `your_project_id_here` with your actual Appwrite project ID.
+
+### 3. Configure Appwrite
+
+Create an `appwrite.js` file in the `src` folder:
 ```js
 import { Client, Databases } from "appwrite";
 
 const client = new Client();
 
 client
-  .setEndpoint("https://cloud.appwrite.io/v1") // Your Appwrite endpoint
-  .setProject("YOUR_PROJECT_ID"); // Your project ID
+  .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
+  .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
 export const databases = new Databases(client);
 export const DATABASE_ID = "YOUR_DATABASE_ID";
 export const COLLECTION_ID = "YOUR_COLLECTION_ID";
 ```
+
+**Note:** Replace `YOUR_DATABASE_ID` and `YOUR_COLLECTION_ID` with your actual IDs from Appwrite Console.
 
 ---
 
