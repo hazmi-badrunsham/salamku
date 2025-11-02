@@ -1,20 +1,317 @@
-@import "tailwindcss";
-
-summary::-webkit-details-marker {
-  display: none
+/* --- TITLE --- */
+.title {
+  color: #ff4da6;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0.6rem;
 }
 
-.checker-background::before {
-  content: "";
-  position: absolute;
+/* --- CHAT BOX --- */
+.chat-box {
+  border: 3px solid #7caaff;
+  background: #0b0b0b;
+  padding: 0.8rem;
+  height: 65vh;
+  overflow-y: auto;
+  text-align: left;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 0 10px #7caaff;
+  border-radius: 6px;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.chat-box::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #7caaff;
+  border-radius: 4px;
+}
+
+/* --- MESSAGE BUBBLES --- */
+.message {
+  margin-bottom: 10px;
+  color: #9afd89;
+  font-size: 9px;
+  word-wrap: break-word;
+  background: #000;
+  border: 2px solid #9afd89;
+  padding: 0.6rem 0.8rem;
+  line-height: 3;
+  border-radius: 4px;
+  width: fit-content;
+  max-width: 85%;
+  align-self: flex-start;
+  box-shadow: 0 0 6px rgba(154, 253, 137, 0.4);
+  white-space: pre-wrap; 
+    overflow-wrap: break-word; /* Ensure long words break */
+  word-break: break-word; /* Add this for better word breaking */
+
+}
+
+.counter {
+  font-size: 10px;
+  color: #39ff14; /* neon green */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #39ff14;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #39ff14;
+  border-radius: 4px;
+  padding: 7px 15px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 8px #39ff14;
+}
+
+.sender {
+  color: #7caaff;
+}
+
+.placeholder {
+  color: #555;
+  font-size: 9px;
+  text-align: center;
+}
+
+/* --- CONTROLS (PROMPT + RESET) --- */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.controls button {
+  flex: 1;
+  background: #7caaff;
+  color: white;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  border: 2px solid #7caaff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #7caaff;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: #7caaff;
+  color: black;
+}
+
+.controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- REPLY BOX --- */
+.reply-box {
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid #7caaff;
+  box-shadow: 0 0 10px #7caaff;
+
+  padding: 0.8rem; /* Increased padding */
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.3rem;
+}
+
+.reply-box textarea {
+  width: 100%;
+  min-height: 200px; /* Increased from 60px */
+  max-height: 350px; /* Increased from 130px */
+  background: #000;
+  color: #39ff14;
+  border: 2px solid #39ff14;
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;              /* <-- prevents Safari zoom */
+  transform: scale(0.65);       /* Increased from 0.55 to make textarea larger */
+  transform-origin: top left;   /* align properly */
+  resize: none;
+  margin-bottom: -3rem;
+  padding: 0.6rem; /* Increased padding */
+  line-height: 1.4;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Adjust for scaling (keep proportions) */
+.reply-box textarea {
+  width: 154%; /* Adjusted for new scale 0.65 (100/0.65 ≈ 154%) */
+}
+
+/* Send button */
+.reply-box button {
+  background: #7caaff;
+  color: white;
+  padding: 0.6rem 0; /* Increased padding */
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px; /* Slightly larger font */
+  border: 2px solid #7caaff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #7caaff;
+  transition: background 0.2s ease;
+}
+
+.reply-box button:hover {
+  background: #7caaff;
+  color: black;
+}
+
+/* --- LOGIN POPUP --- */
+.login-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above everything */
+}
+
+.login-box {
+  border: 4px solid #7caaff;
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  color: #39ff14;
+  font-family: "Press Start 2P", cursive;
+}
+
+.login-box h2 {
+  color: #7caaff;
+  font-size: 12px;
+  margin-bottom: 1rem;
+}
+
+.login-box input {
+  min-height: 35px;
+  padding: 0.5rem;
+  border: 3px solid #39ff14;
+  background: black;
+  color: #39ff14;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;              /* prevent Safari zoom */
+  transform: scale(0.65);       /* Increased from 0.55 */
+  transform-origin: top left;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 154%; /* Adjusted for new scale 0.65 */
+}
+
+.login-box button {
+  background: #7caaff;
+  color: white;
+  padding: 0.6rem 1.2rem; /* Increased padding */
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px; /* Slightly larger */
+  margin-top: -1rem;
+  border: 2px solid #7caaff;
+  border-radius: 4px;
+}
+
+.login-box button:hover {
+  background: #7caaff;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+  font-size: 9px;
+}
+
+/* --- INBOX POPUP STYLES --- */
+
+.inbox-popup {
+  position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  background-image: linear-gradient(#e6e6e690 1px, transparent 1px),
-  linear-gradient(90deg, #e6e6e690 1px, transparent 1px);
-  background-size: 3.7em 3.7em;
-  mask-image: radial-gradient(ellipse at 50% 40%, black 0%, transparent 55%);
-  z-index: -1;
-  background-position-x: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.inbox-content {
+  position: relative;
+  background: #121212;
+  color: #f0f0f0;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease-in-out;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-icon:hover {
+  color: #ff5e5e;
+}
+
+.inbox-content h3 {
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-size: 1rem;
+  color: #5be97a;
+}
+
+.inbox-message {
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  line-height: 2;
+  font-size: 9px;
+}
+
+.inbox-message strong {
+  color: #5be97a;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.inbox-message p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }

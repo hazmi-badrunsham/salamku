@@ -1,0 +1,39 @@
+/* index.css */
+
+/* pixel font */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: black;
+  color: #39ff14; /* neon green */
+  font-family: "Press Start 2P", cursive;
+  overflow: auto; /* Changed from hidden to auto to allow page scrolling */
+   background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("/src/assets/bg4.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#root {
+  min-height: 100%; /* Changed from height to min-height */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to flex-start */
+  padding: 1rem 0; /* Added padding for scrollability */
+}
+
+/* App layout (fixed height, safe for iPhone XR) */
+.app {
+  width: 100%;
+  max-width: 414px; /* iPhone XR width */
+  min-height: 100vh; /* Changed from height to min-height */
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible; /* Changed from hidden to visible */
+  box-sizing: border-box;
+}
