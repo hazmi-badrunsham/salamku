@@ -1,7 +1,7 @@
-# 💌 SalamKu
+# SalamKu
 
-A simple anonymous message-sharing web app built with **React + Appwrite**.  
-Send and receive heartfelt letters in a cozy, minimalist chat-style interface — complete with typewriter effects and a chill Spotify playlist in the background.
+A simple  message-sharing web app built with **React + Appwrite**.  
+Send and receive  letters in a retro pixel minimalist chat-style interface.
 
 ---
 
@@ -10,9 +10,8 @@ Send and receive heartfelt letters in a cozy, minimalist chat-style interface �
 - 💬 Real-time message exchange (powered by Appwrite)  
 - ⌨️ Typewriter animation for received letters  
 - 💾 Local progress saving using `localStorage`  
-- 📬 Inbox to revisit your revealed letters  
-- 🎧 Embedded Spotify playlist for background ambiance  
-
+- 📬 Inbox to revisit your revealed letters
+  
 ---
 
 ## ⚙️ Setup Instructions
